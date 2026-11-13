@@ -6,6 +6,21 @@ Aplicação web em português baseada no `coloracaoHARD.cpp`. Importe matrícula
 
 Qualquer pessoa pode testar sem login. As matrículas são processadas no navegador e permanecem em memória durante a sessão.
 
+## Origem do projeto e uso de IA
+
+> Desenvolvi a implementação original do `coloracaoHARD.cpp` em C++ sem ajuda de IA. Depois, pedi ao ChatGPT/Codex que criasse uma aplicação web a partir desse código, para permitir que outras pessoas enviassem um CSV e testassem a geração de horários sem conflito.
+
+O código C++ está disponível em **[`coloracaoHARD.cpp`](coloracaoHARD.cpp)**. A versão publicada inclui um ajuste posterior na localização do CSV realizado com apoio de IA. A criação da aplicação web e sua refatoração com Arquitetura Limpa também foram feitas com assistência de IA.
+
+Para compilar e executar o programa C++ com o exemplo, usando um compilador com suporte a C++17:
+
+```sh
+g++ -std=c++17 -Wall -Wextra -pedantic coloracaoHARD.cpp -o coloracaoHARD
+./coloracaoHARD public/matriculas_exemplo.csv
+```
+
+O programa grava o resultado em `cronograma_cpp.csv` na pasta de execução.
+
 ## Arquitetura
 
 As dependências seguem a Arquitetura Limpa: regras de negócio independem de CSV, interface, navegador e hospedagem.

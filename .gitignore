@@ -4,3 +4,6 @@ qa-artifacts/
 .DS_Store
 Thumbs.db
 dist/
+/coloracaoHARD
+/coloracaoHARD.exe
+/cronograma_cpp.csv
