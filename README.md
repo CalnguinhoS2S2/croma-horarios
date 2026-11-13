@@ -2,6 +2,29 @@
 
 Aplicação web em português para a apresentação do `coloracaoHARD.cpp`. Importe matrículas, gere horários com DSATUR, explore o grafo e exporte a grade.
 
+## Acessar na apresentação
+
+**Aplicação pública:** https://calnguinhos2s2.github.io/croma-horarios/
+
+**Código-fonte:** https://github.com/CalnguinhoS2S2/croma-horarios
+
+Qualquer pessoa pode abrir o site, carregar o exemplo ou enviar seu próprio CSV, sem login. O processamento das matrículas acontece no navegador do visitante.
+
+## Publicação no GitHub Pages
+
+O workflow `.github/workflows/pages.yml` executa os testes e publica somente o conteúdo de `dist/` a cada envio para a branch `main`. Não exige dependências de runtime nem segredos adicionais.
+
+Nas configurações do repositório, **Settings → Pages → Source** deve estar em **GitHub Actions**. A publicação também pode ser iniciada manualmente em **Actions → Publicar Croma no GitHub Pages → Run workflow**.
+
+Para editar em outro computador:
+
+```powershell
+git clone https://github.com/CalnguinhoS2S2/croma-horarios.git
+cd croma-horarios
+```
+
+Depois de alterar os arquivos, execute os testes, faça commit e envie para `main`. O GitHub publica a atualização automaticamente. O histórico das publicações fica na aba **Actions**.
+
 ## Abrir a aplicação
 
 Abra **`dist/index.html`** no Chrome, Edge ou Firefox. Funciona localmente, sem instalação e sem internet. Os arquivos CSS e JavaScript devem ficar ao lado do HTML.
@@ -70,4 +93,5 @@ Os testes verificam o CSV original, separadores, caracteres especiais, duplicata
 
 - `dist/`: aplicação completa, sem dependências de runtime e sem etapa de build.
 - `tests/`: testes do algoritmo e do fluxo no navegador.
-- `.openai/hosting.json`: configuração de hospedagem privada no Sites.
+- `.github/workflows/pages.yml`: testes e publicação pública no GitHub Pages.
+- `.openai/hosting.json`: configuração da publicação original no Sites; não é usada pelo GitHub Pages.

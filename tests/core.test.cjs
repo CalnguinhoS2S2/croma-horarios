@@ -13,7 +13,7 @@ function verify(result) {
   }
 }
 test('exemplo é o CSV original e preserva os dados do C++', () => {
-  const original = fs.readFileSync(path.join(__dirname, '../../matriculas_exemplo.csv'), 'utf8');
+  const original = fs.readFileSync(path.join(__dirname, '../dist/matriculas_exemplo.csv'), 'utf8');
   assert.equal(C.EXAMPLE.trim(), original.replace(/\r/g, '').trim());
   const data = C.parseEnrollments(original), result = C.generateSchedule(data);
   assert.equal(data.students.size, 26); assert.equal(data.courses.length, 8);

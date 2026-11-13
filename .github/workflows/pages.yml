@@ -1,0 +1,47 @@
+name: Publicar Croma no GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Baixar o código
+        uses: actions/checkout@v6
+
+      - name: Preparar Node.js para os testes
+        uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+
+      - name: Verificar o algoritmo e a leitura dos dados
+        run: node --test tests/core.test.cjs
+
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Preparar a aplicação estática
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+
+      - name: Publicar a aplicação
+        id: deployment
+        uses: actions/deploy-pages@v4
