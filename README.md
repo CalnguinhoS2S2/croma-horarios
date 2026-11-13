@@ -6,6 +6,14 @@ Aplicação web em português baseada no `coloracaoHARD.cpp`. Importe matrícula
 
 Qualquer pessoa pode testar sem login. As matrículas são processadas no navegador e permanecem em memória durante a sessão.
 
+## Integrantes do grupo
+
+- Erick Lucas Machado Figueiredo Da Silva
+- Diogo Cardoso de Araújo
+- Enzo Moura De Rezende
+- Carine Silva Santos
+- Matheus Duarte Albuquerque
+
 ## Origem do projeto e uso de IA
 
 > Desenvolvi a implementação original do `coloracaoHARD.cpp` em C++ sem ajuda de IA. Depois, pedi ao ChatGPT/Codex que criasse uma aplicação web a partir desse código, para permitir que outras pessoas enviassem um CSV e testassem a geração de horários sem conflito.
