@@ -32,7 +32,10 @@ jobs:
           node-version: '22'
 
       - name: Verificar o algoritmo e a leitura dos dados
-        run: node --test tests/core.test.cjs
+        run: node --test
+
+      - name: Gerar os arquivos da aplicação
+        run: node scripts/build.cjs
 
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v5

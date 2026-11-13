@@ -2,7 +2,19 @@ const { test } = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
-const C = require('../dist/core.js');
+const { createServices } = require('../src/composition/create-services.js');
+const { CsvReader } = require('../src/adapters/csv/csv-reader.js');
+const { DsaturColoring } = require('../src/domain/dsatur-coloring.js');
+const { EXAMPLE } = require('../src/data/example.js');
+const services = createServices();
+const C = {
+  EXAMPLE,
+  readCSV: text => new CsvReader().read(text),
+  parseEnrollments: text => services.importEnrollments.execute(text),
+  generateSchedule: data => services.generateSchedule.execute(data),
+  dsatur: graph => new DsaturColoring().color(graph),
+  exportCSV: (result, formatSlot) => services.exportSchedule.execute(result, formatSlot)
+};
 
 function verify(result) {
   assert.equal(result.remainingConflicts, 0);
@@ -13,7 +25,7 @@ function verify(result) {
   }
 }
 test('exemplo é o CSV original e preserva os dados do C++', () => {
-  const original = fs.readFileSync(path.join(__dirname, '../dist/matriculas_exemplo.csv'), 'utf8');
+  const original = fs.readFileSync(path.join(__dirname, '../public/matriculas_exemplo.csv'), 'utf8');
   assert.equal(C.EXAMPLE.trim(), original.replace(/\r/g, '').trim());
   const data = C.parseEnrollments(original), result = C.generateSchedule(data);
   assert.equal(data.students.size, 26); assert.equal(data.courses.length, 8);
