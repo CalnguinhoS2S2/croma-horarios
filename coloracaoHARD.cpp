@@ -1,7 +1,7 @@
 /*
  * Origem e autoria do projeto:
- * A implementacao original deste programa em C++ foi desenvolvida pelo autor
- * do projeto, CalnguinhoS2S2, sem ajuda de IA.
+ * A implementacao original deste programa em C++ foi desenvolvida pelo grupo
+ * do projeto, sem ajuda de IA.
  * Depois, o autor pediu ao ChatGPT/Codex que criasse a aplicacao web a partir
  * deste codigo e, posteriormente, a refatorasse com Arquitetura Limpa.
  * Esta versao inclui um ajuste posterior na localizacao do arquivo CSV,
