@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+qa-artifacts/
+.DS_Store
+Thumbs.db
